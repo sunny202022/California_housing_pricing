@@ -1,3 +1,116 @@
-<h1>
-    Hello World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boston House Price Prediction</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            font-family: 'Arimo', sans-serif;
+            margin: 0;
+            padding-top:100px;
+        }
+
+        .login {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .login h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .form-group input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: #74ebd5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #5dd5c4;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>California House Price Prediction</h1>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="form-group">
+                <label for="MedInc">Median Income</label>
+                <input type="text" id="MedInc" name="MedInc" placeholder="MedInc" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="HouseAge">House Age</label>
+                <input type="text" id="HouseAge" name="HouseAge" placeholder="HouseAge" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="AveRooms">Average Rooms</label>
+                <input type="text" id="AveRooms" name="AveRooms" placeholder="AveRooms" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="AveBedrms">Average Bedrooms</label>
+                <input type="text" id="AveBedrms" name="AveBedrms" placeholder="AveBedrms" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="Population">Population</label>
+                <input type="text" id="Population" name="Population" placeholder="Population" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="AveOccup">Average Occupied</label>
+                <input type="text" id="AveOccup" name="AveOccup" placeholder="AveOccup" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="Latitude">Latitude</label>
+                <input type="text" id="Latitude" name="Latitude" placeholder="Latitude" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="Longitude">Longitude</label>
+                <input type="text" id="Longitude" name="Longitude" placeholder="Longitude" required="required" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        {{prediction_text}}
+    </div>
+</body>
+</html>
