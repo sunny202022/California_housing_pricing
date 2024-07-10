@@ -7,7 +7,12 @@
 4. [GitCLI](https://git-scm.com/book/en/v2/Getting-Started-The-Commnad-Line)
 
 Create a new environment
-python -m venv venv
 
+***
+python -m venv venv
+***
 Activate the Virtual Environment
+
+***
 .\venv\Scripts\activate
+***
